@@ -1,0 +1,14 @@
+.team-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+button{
+    background-color: bisque;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: rgb(19, 17, 17);
+    cursor: pointer;
+}

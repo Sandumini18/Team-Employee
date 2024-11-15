@@ -1,17 +1,15 @@
-import './App.css';
-import Header from './Header';
-import Footer from './Footer';
-import Content from './Content';
-import Employees from './Employees';
+import React from 'react'
+import NavBar from './components/NavBar'
+import './styles/Teams.css'
+import Dashboard from './pages/Dashboard'
+import Teams from './pages/Teams'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <Header/>
-      <Employees/>
-      <Footer/>
+    <div>
+        <Teams/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
