@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from './components/NavBar'
+import './styles/AddTeam.css'
 import './styles/Teams.css'
 import Dashboard from './pages/Dashboard'
 import Teams from './pages/Teams'

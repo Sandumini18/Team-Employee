@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TeamCard({teamName, teamLead, memberCount}) {
+function TeamCard({teamLead, teamName, memberCount}) {
   return (
     <div className='team-card'>
         <h3>{teamName}</h3>
