@@ -1,15 +1,16 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function NavBar() {
   return (
-    <nav className='navbar'>
+    <nav className="navbar">
         <h1>Employee Management System</h1>
-        <ul>
-            <li><a href="/">Dashboard</a></li>
-            <li><a href="/teams">Teams</a></li>
-            <li><a href="/employees">Employees</a></li>
-        </ul>
+        {/*<Link to="/" className='nav-item'>Dashboard</Link>*/}
+        <div className="nav nav-pills nav-justified">
+        <Link to="/"  className="nav-link">Employees</Link>
+        <Link to="/teams"  className="nav-link">Teams</Link>
+        </div>
+        
     </nav>
   )
 }

@@ -1,42 +1,19 @@
 import React, { useState } from 'react'
-import TeamCard from '../components/TeamCard'
+import Layout from '../components/Layout';
 import AddTeam from '../components/AddTeam';
-import Modal from 'react-modal'
+import TeamCard from '../components/TeamCard';
 
-
-function Teams() {
-
-    const [modalIsOpen, setModalIsOpen] = useState(false);
-
-    const openModal = () => {
-        setModalIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setModalIsOpen(false)
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-      }
+function Teams({teamLead, teamName}) {
 
   return (
     <div>
-        <div>
-            <h2>Teams</h2>
-            <div>
-               <button onClick={() => openModal()}>Add Team</button>
-               <Modal isOpen={modalIsOpen} onRequestClose={closeModal} ariaHideApp={false}>
-                <AddTeam onSubmit={handleSubmit}/>
-               </Modal>
-            </div>
-            
-            <div>
-                <TeamCard teamName="Team Alpha" teamLead="Brian" memberCount={5}/>
-                <TeamCard teamName="Team Beta" teamLead="James" memberCount={8}/>
-            </div>
-        </div>
-        </div>
+        <Layout>
+          <div>
+            <AddTeam/>
+            <TeamCard/>
+          </div>
+        </Layout>
+    </div>
   )
 }
 

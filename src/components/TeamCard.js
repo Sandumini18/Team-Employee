@@ -1,11 +1,13 @@
 import React from 'react'
 
-function TeamCard({teamLead, teamName, memberCount}) {
+function TeamCard() {
   return (
     <div className='team-card'>
-        <h3>{teamName}</h3>
-        <p>{teamLead}</p>
-        <p>{memberCount}</p>
+      <h1 className='titleEmp'>Teams Details</h1>
+      <div>
+        <h6>Team Name</h6>
+        <p>Count</p>
+      </div>
     </div>
   )
 }

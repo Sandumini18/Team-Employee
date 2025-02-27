@@ -1,22 +1,45 @@
 import React, { useState } from 'react'
 
-function AddTeam({closeModal, handleSubmit}) {
+import Modal from 'react-modal'
 
-  const [teamLead, setTeamLead] = useState("")
-  const [teamName, setTeamName] = useState("")
+Modal.setAppElement('#root')
+
+function AddTeam() {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [teamData, setTeamData] = useState({id:"",teamName:"",count:""})
+
+  const handleTeamData = (e) => {
+    setTeamData({...teamData, [e.target.name]:[e.target.value]})
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log(teamData)
+    setTeamData({id:"",teamName:"",count:""})
+    setModalIsOpen(false)
+  }
+
+  const cancelForm = () => {
+    setTeamData({id:"",teamName:"",count:""})
+    setModalIsOpen(false)
+  }
 
   return (
     <div>
-      <h2>Add New Team</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='teamName'>Team Name:</label>
-          <input type='text' id='teamName' name='teamname' placeholder='enter team name' value={teamName} onChange={(e) => setTeamName(e.target.value)}/>
+      <button type="button" className="btn btn-primary" onClick={()=>setModalIsOpen(true)}>Add New Team</button>
+        <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)}>
+        <h5>Add Team Details</h5>
 
-          <label htmlFor='teamLead'>Team Lead:</label>
-          <input type='text' id='teamLead' name='teamLead' placeholder='enter team lead' value={teamLead} onChange={(e) => setTeamLead(e.target.value)}/>
-          
-          <button type='submit' onClick={() => closeModal()}>Submit</button>
-        </form>
+          <form onSubmit={handleSubmit}>
+            <input className="form-control" type='text' id='id' placeholder='id' name='id' value={teamData.id} onChange={handleTeamData} required/>
+            <input className="form-control" type='text' id='teamName' placeholder='Team Name' name='teamName' value={teamData.teamName} onChange={handleTeamData} required/>
+            <input className="form-control" type='text' id='count' placeholder='No of Employees' name='count' value={teamData.count} onChange={handleTeamData} required/>
+            <button className="btn btn-primary" type='submit'>Add</button>
+            <button className="btn btn-primary" onClick={cancelForm}>Cancel</button>
+
+          </form>
+        </Modal>
     </div>
   )
 }
