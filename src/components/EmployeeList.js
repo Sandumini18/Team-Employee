@@ -2,8 +2,6 @@ import React from 'react'
 
 function EmployeeList(props) {
 
-  
-
   return (
     <div className='background'>
       <h1 className='titleEmp'>Employees Details</h1>

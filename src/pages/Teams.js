@@ -3,14 +3,24 @@ import Layout from '../components/Layout';
 import AddTeam from '../components/AddTeam';
 import TeamCard from '../components/TeamCard';
 
-function Teams({teamLead, teamName}) {
+function Teams() {
+
+  const [allTeams, setAllTeams] = useState([])
+
+  const handleAddTeam = (team) => {
+    setAllTeams([...allTeams, team])
+  }
+
+  const deleteTeam = (id) => {
+    setAllTeams([...allTeams].filter((team)=>team.id!==id));
+  }
 
   return (
     <div>
         <Layout>
           <div>
-            <AddTeam/>
-            <TeamCard/>
+            <AddTeam addTeam={handleAddTeam}/>
+            <TeamCard teamList={allTeams} delete={deleteTeam}/>
           </div>
         </Layout>
     </div>

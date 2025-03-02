@@ -29,3 +29,29 @@
 svg{
   cursor: pointer;
 }
+
+.card{
+  margin: 10px;
+  padding: 10px;
+}
+
+.close-icon{ /* to the top right corner */
+  position: absolute;   /* This makes it stick to the viewport */
+    top: 0;         /* Adjust as needed */
+    right: 0; 
+}
+.modal-header{
+  position: relative; /* This is the key to make .close-icon position correctly within modal page*/
+}
+
+.action{
+  position: absolute;   /* This makes it stick to the viewport */
+    top: 0;         /* Adjust as needed */
+    right: 0; 
+    margin-right: 50px;
+    margin-top: 20px;
+}
+
+.edit{
+  margin-right: 30px;
+}

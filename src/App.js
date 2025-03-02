@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 //import './styles/AddTeam.css'
 //import './styles/Teams.css'
-import Dashboard from './pages/Dashboard'
+//import Dashboard from './pages/Dashboard'
 import Teams from './pages/Teams'
 import Employees from './pages/Employees'
 import { Route, Routes } from 'react-router-dom'
 import './App.css';
-import NewModal from './pages/NewModal'
 
 const App = () => {
 
@@ -17,7 +16,6 @@ const App = () => {
         <Route path='/' element={<Employees/>}/>
         <Route path='/teams' element={<Teams/>}/>
       </Routes>
-      <NewModal/>
     </div>
   )
     
