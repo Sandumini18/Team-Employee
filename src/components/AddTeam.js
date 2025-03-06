@@ -6,7 +6,6 @@ Modal.setAppElement('#root')
 
 function AddTeam(props) {
 
-  const [modalIsOpen, setModalIsOpen] = useState(false)
   const [teamData, setTeamData] = useState({id:"",teamName:"",count:""})
 
   const handleTeamData = (e) => {
@@ -18,25 +17,22 @@ function AddTeam(props) {
     console.log(teamData)
     props.addTeam(teamData)
     setTeamData({id:"",teamName:"",count:""})
-    setModalIsOpen(false)
+    props.setModal(false)
   }
 
   const cancelForm = () => {
     setTeamData({id:"",teamName:"",count:""})
-    setModalIsOpen(false)
+    props.setModal(false)
   }
 
-  const formClose = () => {
-    setModalIsOpen(false)
-  }
 
   return (
     <div>
-      <button type="button" className="btn btn-primary" onClick={()=>setModalIsOpen(true)}>Add New Team</button>
-        <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)}>
+      <button type="button" className="btn btn-primary" onClick={()=>props.setModal(true)}>Add New Team</button>
+        <Modal isOpen={props.modal} onRequestClose={()=>props.setModal(false)}>
           <div className='modal-header'>
         <h5>Add Team Details</h5>
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg close-icon" viewBox="0 0 16 16" onClick={formClose}>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-lg close-icon" viewBox="0 0 16 16" onClick={props.close}>
   <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
 </svg>
 </div>
